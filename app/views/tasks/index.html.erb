@@ -1,11 +1,24 @@
-<p style="color: green"><%= notice %></p>
-<h1>Tasks</h1>
-<div id="tasks">
-  <% @tasks.each do |task| %>
-    <%= render task %>
-    <p>
-      <%= link_to "Show this task", task %>
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+  <% if user_signed_in? %>
+    <body>
+      <div class="body-item">
+        <% if @tasks.present? %>
+          <%= render 'task' %>
+        <% else %>
+          <div class="mb-3">タスクがありません</div>
+        <% end %>
+        <div class="new-task">
+          <%= link_to 'こちらからタスクを作りましょう！', new_task_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </body>
+  <% else %>
+    <body>
+      <div class="body-item">
+        <h1>Pottode</h1>
+        <h2>達成感が出るアプリ</h2>
+      </div>
+    </body>
   <% end %>
-</div>
-<%= link_to "New task", new_task_path %>
+</html>

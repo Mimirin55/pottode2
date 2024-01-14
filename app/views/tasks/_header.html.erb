@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+  <header>
+    <nav>
+      <div class="header-item">
+        <ul>
+          <li class="maintheme"><%= link_to 'Pottode', root_path %></li>
+          <li class="header-name"><%= current_user.name %>様</li>
+          <li class="header-item"><%= link_to 'アカウント編集', edit_user_registration_path %></li>
+          <li class="header-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: "このユーザーを削除しますか？"}
+          %></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+<% else %>
+  <header>
+    <nav>
+      <div class="header-item">
+        <ul>
+          <li class="maintheme"><%= link_to 'Pottode', root_path %></li>
+          <li class="header-item"><%= link_to 'ログイン', new_user_session_path %></li>
+          <li class="header-item"><%= link_to '新規登録', new_user_registration_path %></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+<% end %>

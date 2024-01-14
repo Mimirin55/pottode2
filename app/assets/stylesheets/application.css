@@ -1,0 +1,141 @@
+header {
+  width: 100%;
+  background-color: #105175;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+header .header-name {
+  font-size: small;
+  font-weight: bold;
+  width: 1000px;
+	max-width: 100%;
+	padding: 2px;
+	background: #40c6d5;
+	font: 16px sans-serif;
+	color: #FFF;
+	border-radius: 40px;
+	box-shadow: 0 0 0 2px #FFF, 0 0 0 8px #40c6d5;
+	box-sizing: border-box;
+  margin-right: 20px;
+}
+
+footer {
+  width: 100%;
+  background-color: #105175;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+
+.maintheme {
+  font-size: 30px;
+  font-family: cursive;
+  margin-right: 850px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px; 
+}
+
+body {
+  background-image: url(sunbeams-1547273_1280.jpg);
+  background-size: cover;
+  background-attachment: scroll;
+  color: #fff;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.body-item {
+  text-shadow: 1px 1px 2px rgb(7, 6, 65);
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.body-item h1 {
+  font-size: 90px;
+  font-family: cursive;
+}
+ h2 {
+  font-size: 40px;
+  text-shadow: 1px 1px 2px rgb(7, 6, 65);
+ }
+
+ .user-form {
+  text-align: center;
+ }
+
+ .field {
+  margin-bottom: 13px;
+  box-sizing: border-box;
+ }
+
+ .terms-of-service {
+  text-align: center;
+  margin-top: 100px;
+ }
+
+ .terms-of-service li {
+  list-style: none;
+ }
+
+ .service-list {
+  text-shadow: 1px 1px 2px rgb(7, 6, 65);
+ }
+
+ .one-task {
+  list-style: none;
+  text-align: center;
+ }
+
+.task-list {
+  font-size: small;
+  background-color: #e4dcb4;
+  border: 1px solid rgb(136, 136, 136);
+  border-radius: 10%;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+ .new-task {
+  margin-top: 30px;
+  text-align: center;
+ }
+
+ .edit-delete {
+  display: flex;
+  justify-content: center;
+ }
+
+.task-container {
+  list-style: none;
+  display: block;
+}
+
+.task {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
