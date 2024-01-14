@@ -1,14 +1,25 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Title:</strong>
-    <%= task.title %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= task.description %>
-  </p>
-  <p>
-    <strong>Status:</strong>
-    <%= task.status %>
-  </p>
-</div>
+<div class="container">
+  <div class="row">
+    <% @tasks.each do |task| %>
+      <div class="col-md-3">
+        <div class="task-list">
+        <p><b><%= link_to task.title, edit_task_path(task) %></b></p>
+        <p><%= task.description %></p>
+        <p>開始：<%= task.start_date.strftime("%m月%d日 %H:%M") %></p>
+        <p>終了：<%= task.end_date.strftime("%m月%d日 %H:%M") %></p>
+        <div class="edit-delete">
+          <%= button_to '編集', edit_task_path(task), method: :get, class: 'btn btn-primary' %>
+          <%= link_to '#' do %>
+                <i class="bi bi-check-circle-fill"></i>
+              <% end %>
+          <%= button_to '完了',
+                        task_path(task),
+                        method: :delete,
+                        data: { confirm: 'このタスクを削除します' },
+                        class: 'btn btn-danger' %>
+        </div>
+        </div>
+      </div>
+    <%end%>
+  </div> 
+</div> 

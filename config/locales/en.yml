@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+
+ja:
+  devise:
+    registrations:
+      new:
+        name: '名前（ニックネーム可）'
+        email: 'Eメール'
+        password: 'パスワード'
+        password_confirmation: 'パスワード（確認用）'

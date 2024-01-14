@@ -16,6 +16,7 @@ gem 'pg', '~> 1.1'
 
 gem 'devise'
 gem 'devise-i18n'
+gem 'high_voltage', '~> 3.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
