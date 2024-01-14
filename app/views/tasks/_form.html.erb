@@ -1,27 +1,21 @@
-<%= form_with(model: task) do |form| %>
-  <% if task.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-      <ul>
-        <% task.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="terms-of-service">
+  <%= form_with model: @task, url: tasks_path, method: :post do |f| %>
+    <div class="mb-3">
+      <%= f.label :title, 'タイトル' %>
+      <%= f.text_field :title, class: 'form-control' %>
     </div>
+    <div class="mb-3">
+      <%= f.label :description, 'タスク内容' %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= f.label :start_date, '開始' %>
+      <%= f.datetime_select :start_date %>
+    </div>
+    <div class="field">
+      <%= f.label :end_date, '終了' %>
+      <%= f.datetime_select :end_date %>
+    </div>
+    <%= f.submit '登録', class: 'btn btn-primary'  %>
   <% end %>
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

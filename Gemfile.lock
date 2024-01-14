@@ -111,6 +111,7 @@ GEM
       railties (>= 5.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    high_voltage (3.1.2)
     htmlbeautifier (1.4.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -309,6 +310,7 @@ DEPENDENCIES
   devise
   devise-i18n
   factory_bot_rails
+  high_voltage (~> 3.1)
   htmlbeautifier
   jbuilder
   jsbundling-rails

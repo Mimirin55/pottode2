@@ -1,7 +1,26 @@
-<h1>Editing task</h1>
-<%= render "form", task: @task %>
-<br>
-<div>
-  <%= link_to "Show this task", @task %> |
-  <%= link_to "Back to tasks", tasks_path %>
+<div class="body-item">
+  <h2>タスク編集</h2>
+  <div class="card-body">
+    <div class="terms-of-service">
+      <%= form_with model: @task do |f| %>
+        <div class="mb-3">
+          <%= f.label :title, 'タイトル' %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :description, 'タスク内容' %>
+          <%= f.text_area :description, class: 'form-control' %>
+        </div>
+        <div class="field">
+          <%= f.label :start_date, '開始' %>
+          <%= f.datetime_select :start_date %>
+        </div>
+        <div class="field">
+          <%= f.label :end_date, '終了' %>
+          <%= f.datetime_select :end_date %>
+        </div>
+        <%= f.submit '登録', class: 'btn btn-primary'  %>
+      <% end %>
+    </div>
+  </div>
 </div>
