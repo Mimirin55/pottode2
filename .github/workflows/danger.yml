@@ -22,5 +22,4 @@ jobs:
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          wget https://raw.githubusercontent.com/happiness-chain/danger/main/Dangerfile
           danger --verbose

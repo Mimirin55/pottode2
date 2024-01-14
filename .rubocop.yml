@@ -1,7 +1,6 @@
 require:
   - rubocop-rails
   - rubocop-rspec
-  - rubocop-hc
 Style/Documentation:
   Enabled: false
 Metrics/MethodLength:
@@ -20,6 +19,6 @@ Layout/LineLength:
   Exclude:
     - config/initializers/devise.rb
     - db/migrate/*.rb
-Hc/RailsSpecificActionName:
+RailsSpecificActionName:
   Exclude:
     - app/controllers/users/omniauth_callbacks_controller.rb
