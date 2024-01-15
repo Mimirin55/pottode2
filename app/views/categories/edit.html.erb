@@ -1,0 +1,14 @@
+<div class="body-item">
+  <h2>カテゴリ編集</h2>
+  <div class="card-body">
+    <div class="terms-of-service">
+      <%= form_with model: @category do |f| %>
+        <div class="mb-3">
+          <%= f.label :name, 'カテゴリ名' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <%= f.submit '登録', class: 'btn btn-primary'  %>
+      <% end %>
+    </div>
+  </div>
+</div>

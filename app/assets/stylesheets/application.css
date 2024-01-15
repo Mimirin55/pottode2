@@ -29,14 +29,19 @@ header .header-name {
   margin-right: 20px;
 }
 
+.header-search {
+  float: right;
+  margin-right: 150px;
+}
+
 main {
   text-align: center;
 }
 
 .flash-message {
   border-radius: 5px;
-  padding: 16px 24px;
-  margin: 16px 0px;
+  padding: 10px 20px;
+  margin: 0px 0px;
 }
  
 .flash-message.notice {
@@ -141,7 +146,7 @@ body {
 }
 
  .new-task {
-  margin-top: 30px;
+  margin-top: 10px;
   text-align: center;
  }
 
@@ -150,15 +155,14 @@ body {
   justify-content: center;
  }
 
-.task-container {
-  list-style: none;
-  display: flex;
-}
-
 .task {
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
   display: inline-block;
   vertical-align: top;
+}
+
+.row {
+  text-shadow: 1px 1px 2px rgb(7, 6, 65);
 }

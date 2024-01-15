@@ -1,0 +1,7 @@
+<%= form_with model: @category, url: categories_path do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, 'カテゴリ名' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <%= f.submit '作成', class: 'btn btn-primary' %>
+<% end %>

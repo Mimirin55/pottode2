@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% if user_signed_in? %>
+    <body>
+      <div class="container">
+        <div class="row">
+          <% @categories.each do |category| %>
+            <div class="col-md-3">
+              <div class="task-list">
+              <p><b><%= link_to category.name, edit_category_path(category) %></b></p>
+              <div class="edit-delete">
+                <%= button_to '編集', edit_category_path(category), method: :get, class: 'btn btn-primary' %>
+                <%= link_to '#' do %>
+                      <i class="bi bi-check-circle-fill"></i>
+                    <% end %>
+                <%= button_to '削除',
+                              category_path(category),
+                              method: :delete,
+                              data: { confirm: 'このカテゴリを削除します' },
+                              class: 'btn btn-danger' %>
+              </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="body-item">
+        <%= link_to 'カテゴリ作成はこちら', new_category_path, class: 'btn btn-success' %>
+      </div>
+    </body>
+  <% else %>
+    <body>
+      <div class="body-item">
+        <h1>Pottode</h1>
+        <h2>達成感が出るアプリ</h2>
+      </div>
+    </body>
+  <% end %>
+</html>

@@ -16,6 +16,12 @@
       <%= f.label :end_date, '終了' %>
       <%= f.datetime_select :end_date %>
     </div>
+    <div class="field">
+      <% @categories.each do |category| %>
+        <%= f.check_box :category_ids, { multiple: true }, category.id, nil %>
+        <%= f.label :category_ids, category.name %>
+      <% end %>
+    </div>
     <%= f.submit '登録', class: 'btn btn-primary'  %>
   <% end %>
 </div>
