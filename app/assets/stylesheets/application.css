@@ -40,7 +40,7 @@ main {
 
 .flash-message {
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 5px 20px;
   margin: 0px 0px;
 }
  
@@ -141,8 +141,9 @@ body {
   background-color: #e4dcb4;
   border: 1px solid rgb(136, 136, 136);
   border-radius: 10%;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 10px;
+  width: 250px;
 }
 
  .new-task {
@@ -165,4 +166,11 @@ body {
 
 .row {
   text-shadow: 1px 1px 2px rgb(7, 6, 65);
+  margin-top: 60px;
+}
+
+.pagination {
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: -15px;
 }
