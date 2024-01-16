@@ -1,17 +1,20 @@
 class TasksController < ApplicationController
   def index
     @user = User.find_by(params[:user])
-    @tasks = Task.all.order(start_date: :asc)
+    @tasks = Task.all.order(start_date: :asc).page(params[:page]).per(12)
+    @tasks = @tasks.joins(:categories).where(categories:{id:params[:category_id]})if params[:category_id].present?
+    @categories = Category.all
   end
 
   def new
     @task = Task.new
+    @categories = Category.all
   end
 
   def create
     @task = Task.new(task_params)
     if @task.save
-      flash[:notice] = 'おめでとう！タスクを作成できました'
+      flash[:notice] = 'タスクを作成できました！いつも頑張っていてすごいです！'
       redirect_to tasks_path
     else
       flash.now[:danger] = 'タスクを作成できませんでした'
@@ -26,6 +29,7 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -48,6 +52,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :start_date, :end_date)
+    params.require(:task).permit(:title, :description, :start_date, :end_date, category_ids: [])
   end
 end
