@@ -174,3 +174,7 @@ body {
   margin-top: 10px;
   margin-bottom: -15px;
 }
+
+.red {
+  color: rgb(218, 32, 32);
+}
