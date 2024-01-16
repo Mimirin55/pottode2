@@ -7,18 +7,15 @@
           <% @categories.each do |category| %>
             <div class="col-md-3">
               <div class="task-list">
-              <p><b><%= link_to category.name, edit_category_path(category) %></b></p>
-              <div class="edit-delete">
-                <%= button_to '編集', edit_category_path(category), method: :get, class: 'btn btn-primary' %>
-                <%= link_to '#' do %>
-                      <i class="bi bi-check-circle-fill"></i>
-                    <% end %>
-                <%= button_to '削除',
-                              category_path(category),
-                              method: :delete,
-                              data: { confirm: 'このカテゴリを削除します' },
-                              class: 'btn btn-danger' %>
-              </div>
+                <p><b><%= link_to category.name, edit_category_path(category) %></b></p>
+                <div class="edit-delete">
+                  <%= button_to '編集', edit_category_path(category), method: :get, class: 'btn btn-primary' %>
+                  <%= button_to '削除',
+                                category_path(category),
+                                method: :delete,
+                                data: { confirm: 'このカテゴリを削除します' },
+                                class: 'btn btn-danger' %>
+                </div>
               </div>
             </div>
           <% end %>

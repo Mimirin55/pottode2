@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <% @tasks.each do |task| %>
-      <div class="col-md-2">
         <div class="task-list">
         <p><b><%= link_to task.title, edit_task_path(task) %></b></p>
         <p><%= task.description %></p>
@@ -14,17 +13,13 @@
         </p>
         <div class="edit-delete">
           <%= button_to '編集', edit_task_path(task), method: :get, class: 'btn btn-primary' %>
-          <%= link_to '#' do %>
-                <i class="bi bi-check-circle-fill"></i>
-              <% end %>
           <%= button_to '完了',
                         task_path(task),
                         method: :delete,
                         data: { confirm: 'このタスクを削除します' },
                         class: 'btn btn-danger' %>
         </div>
-        </div>
       </div>
     <%end%>
   </div> 
-</div> 
+</div>
