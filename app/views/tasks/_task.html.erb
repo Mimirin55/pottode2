@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
     <% @tasks.each do |task| %>
-        <div class="task-list">
-        <p><b><%= link_to task.title, edit_task_path(task) %></b></p>
-        <p><%= task.description %></p>
-        <p>開始：<%= task.start_date.strftime("%m月%d日 %H:%M") %></p>
-        <p>終了：<%= task.end_date.strftime("%m月%d日 %H:%M") %></p>
-        <p>カテゴリ：
+      <div class="task-list">
+        <div><b><%= link_to task.title, edit_task_path(task) %></b></div>
+        <div><%= task.description %></div>
+        <div>開始：<%= task.start_date.strftime("%m月%d日 %H:%M") %></div>
+        <div>終了：<%= task.end_date.strftime("%m月%d日 %H:%M") %></div>
+        <div>カテゴリ：
         <% task.categories.each do |category| %>
           <%= category.name %>
         <% end %>
-        </p>
+        </div>
         <div class="edit-delete">
           <%= button_to '編集', edit_task_path(task), method: :get, class: 'btn btn-primary' %>
           <%= button_to '完了',
