@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   def index
     @user = User.find_by(params[:user])
-    @tasks = Task.all.order(start_date: :asc)
+    @tasks = Task.all.order(start_date: :asc).page(params[:page]).per(12)
     @tasks = @tasks.joins(:categories).where(categories:{id:params[:category_id]})if params[:category_id].present?
     @categories = Category.all
   end
