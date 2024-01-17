@@ -18,14 +18,14 @@ header .header-name {
   font-size: small;
   font-weight: bold;
   width: 1000px;
-	max-width: 100%;
-	padding: 2px;
-	background: #40c6d5;
-	font: 16px sans-serif;
-	color: #FFF;
-	border-radius: 40px;
-	box-shadow: 0 0 0 2px #FFF, 0 0 0 8px #40c6d5;
-	box-sizing: border-box;
+  max-width: 100%;
+  padding: 2px;
+  background: #40c6d5;
+  font: 16px sans-serif;
+  color: #FFF;
+  border-radius: 40px;
+  box-shadow: 0 0 0 2px #FFF, 0 0 0 8px #40c6d5;
+  box-sizing: border-box;
   margin-right: 20px;
 }
 
@@ -43,13 +43,13 @@ main {
   padding: 5px 20px;
   margin: 0px 0px;
 }
- 
+
 .flash-message.notice {
   background-color: #bcdfff;
   color: #0067C0;
   border: solid 1px #0067C0;
 }
- 
+
 .flash-message.alert {
   background-color: #ffd4d1;
   color: #930403;
@@ -76,7 +76,7 @@ footer {
 a {
   text-decoration: none;
   color: white;
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 body {
@@ -103,38 +103,39 @@ body {
   font-size: 90px;
   font-family: cursive;
 }
- h2 {
+
+h2 {
   font-size: 40px;
   text-shadow: 1px 1px 2px rgb(7, 6, 65);
- }
+}
 
- .user-form {
+.user-form {
   text-align: center;
   margin-top: 100px;
- }
+}
 
- .field {
+.field {
   margin-bottom: 13px;
   box-sizing: border-box;
- }
+}
 
- .terms-of-service {
+.terms-of-service {
   text-align: center;
   margin-top: 100px;
- }
+}
 
- .terms-of-service li {
+.terms-of-service li {
   list-style: none;
- }
+}
 
- .service-list {
+.service-list {
   text-shadow: 1px 1px 2px rgb(7, 6, 65);
- }
+}
 
- .one-task {
+.one-task {
   list-style: none;
   text-align: center;
- }
+}
 
 .task-list {
   font-size: small;
@@ -146,15 +147,15 @@ body {
   width: 250px;
 }
 
- .new-task {
+.new-task {
   margin-top: 10px;
   text-align: center;
- }
+}
 
- .edit-delete {
+.edit-delete {
   display: flex;
   justify-content: center;
- }
+}
 
 .task {
   width: 100%;
