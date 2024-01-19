@@ -1,12 +1,22 @@
 class TasksController < ApplicationController
-  before_action :task_reminder
   require 'date'
 
   def index
-    @user = User.find_by(params[:user])
-    @tasks = Task.all.order(start_date: :asc).page(params[:page]).per(10)
-    @tasks = @tasks.joins(:categories).where(categories:{id:params[:category_id]})if params[:category_id].present?
-    @categories = Category.all
+    if user_signed_in?
+      @tasks = current_user.tasks.order(start_date: :asc).page(params[:page]).per(10)
+      @tasks = @tasks.joins(:categories).where(categories: { id: params[:category_id] }) if params[:category_id].present?
+      @categories = Category.all
+      if @tasks.present?
+        user_id = @tasks[0].user_id
+        if current_user.id == user_id 
+          @tasks.each do |task|
+            if task.end_date + 1.hour < Time.now
+              flash[:alert] = "未完了のタスクがあるよ！大丈夫かな？"
+            end
+          end
+        end
+      end
+    end
   end
 
   def new
@@ -16,6 +26,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user.id
     if @task.save
       flash[:notice] = 'おめでとう！タスクを作成できました'
       if @task.recurrence == "[\"0\", \"1\"]"
@@ -60,18 +71,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :start_date, :end_date, category_ids: [], recurrence: [])
-  end
-
-  def task_reminder
-    if user_signed_in?
-      @tasks = Task.all
-      @tasks.each do |task|
-        if task.end_date + 1.hour < Time.now
-          flash[:alert] = "未完了のタスクがあるよ！大丈夫かな？"
-        end
-      end
-    end
+    params.require(:task).permit(:title, :description, :start_date, :end_date, :user_id, category_ids: [], recurrence: [])
   end
 
   def task_repetition
