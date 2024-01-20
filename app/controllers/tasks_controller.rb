@@ -81,6 +81,7 @@ class TasksController < ApplicationController
         category_ids: @task.categories.ids,
         start_date: @task.start_date + 1.week,
         end_date: @task.end_date + 1.week,
+        user_id: current_user.id
       )
     @task.save!
   end

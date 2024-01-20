@@ -26,6 +26,17 @@ ja:
   
   activerecord:
     errors:
+      attributes:
+            user:
+              required: "ユーザーは必須です"
       messages:
+        required: "必須項目です"
         record_invalid: "保存できませんでした: %{errors}"
+      models:
+        task:
+          required: "必須項目です"
+          attributes:
+            user:
+              required: "ユーザーは必須です"
+
 
