@@ -6,11 +6,13 @@
         <li><%= link_to 'プライバシーポリシー', page_path('privacy') %></li>
         <li><%= link_to 'お問い合わせ', page_path('qa') %></li>
         <li>Copyright @ 2023</li>
-        <li class="x">
-        <a href="//twitter.com/intent/tweet?url=タスク完了頑張ります！&text=" target="_blank" rel="nofollow noopener noreferrer">
-          <i>Xに投稿する</i>
-        </a>
-        <li>
+        <% if user_signed_in? %>
+          <li>
+            <a href="//twitter.com/intent/tweet?url=タスク完了頑張ります！&text=" target="_blank" rel="nofollow noopener noreferrer">
+            <i class="bi bi-twitter">Xに投稿する</i>
+            </a>
+        </li>
+        <% end %>
       </ul>
     </div>
   </nav>
