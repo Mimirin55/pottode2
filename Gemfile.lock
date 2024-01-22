@@ -85,6 +85,13 @@ GEM
       xpath (~> 3.2)
     code_analyzer (0.5.5)
       sexp_processor
+    coffee-rails (5.0.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 5.2.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     cssbundling-rails (1.2.0)
@@ -104,12 +111,15 @@ GEM
     diff-lcs (1.5.0)
     erubi (1.12.0)
     erubis (2.7.0)
+    execjs (2.9.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.16.3)
+    font-awesome-sass (6.5.1)
+      sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     high_voltage (3.1.2)
@@ -283,6 +293,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     sexp_processor (4.17.0)
+    social-share-button (1.2.4)
+      coffee-rails
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -334,6 +346,7 @@ DEPENDENCIES
   devise
   devise-i18n
   factory_bot_rails
+  font-awesome-sass
   high_voltage (~> 3.1)
   htmlbeautifier
   ice_cube
@@ -350,6 +363,7 @@ DEPENDENCIES
   rubocop-rspec
   sassc-rails
   selenium-webdriver
+  social-share-button
   sprockets-rails
   stimulus-rails
   turbo-rails
