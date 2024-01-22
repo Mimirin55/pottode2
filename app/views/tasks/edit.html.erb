@@ -1,36 +1,53 @@
+<script type="text/javascript">
+  const recognitionTitle = new webkitSpeechRecognition();
+  recognitionTitle.lang = "ja-JP";
+  recognitionTitle.onresult = (event) => {
+    if (event.results.length > 0) {
+      title.value = event.results[0][0].transcript;
+    }
+  }
+
+  const recognitionDescription = new webkitSpeechRecognition();
+  recognitionDescription.lang = "ja-JP";
+  recognitionDescription.onresult = (event) => {
+    if (event.results.length > 0) {
+      description.value = event.results[0][0].transcript;
+    }
+  }
+</script>
 <div class="body-item">
   <h2>タスク編集</h2>
-  <div class="card-body">
-    <div class="terms-of-service">
-      <%= form_with model: @task do |f| %>
-        <div class="mb-3">
-          <%= f.label :title, 'タイトル' %>
-          <%= f.text_field :title, class: 'form-control' %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :description, 'タスク内容' %>
-          <%= f.text_area :description, class: 'form-control' %>
-        </div>
-        <div class="field">
-          <%= f.label :start_date, '開始' %>
-          <%= f.datetime_select :start_date %>
-        </div>
-        <div class="field">
-          <%= f.label :end_date, '終了' %>
-          <%= f.datetime_select :end_date %>
-        </div>
-        <div class="field">
-          <% @categories.each do |category| %>
-            <%= f.check_box :category_ids, { multiple: true }, category.id, nil %>
-            <%= f.label :category_ids, category.name %>
-          <% end %>
-        </div>
-        <div class="field">
-          <%= f.check_box :recurrence, { multiple: true } %>
-          <%= f.label :recurrence, "来週も繰り返す" %>
-        </div>
-        <%= f.submit '登録', class: 'btn btn-primary'  %>
-      <% end %>
-    </div>
+  <div class="terms-of-service">
+    <%= form_with model: @task do |f| %>
+      <div class="mb-3">
+        <%= f.label :title, 'タイトル' %>
+        <%= f.text_field :title, class: 'form-control', id: "title" %>
+        <i class="bi bi-mic-fill"><input type="button" value="タイトル入力" onclick="recognitionTitle.start()"></i>
+      </div>
+      <div class="mb-3">
+        <%= f.label :description, 'タスク内容' %>
+        <%= f.text_area :description, class: 'form-control', id: "description" %>
+        <i class="bi bi-mic-fill"><input type="button" value="タスク内容入力", onclick="recognitionDescription.start()"></i>
+      </div>
+      <div class="field">
+        <%= f.label :start_date, '開始' %>
+        <%= f.datetime_select :start_date %>
+      </div>
+      <div class="field">
+        <%= f.label :end_date, '終了' %>
+        <%= f.datetime_select :end_date %>
+      </div>
+      <div class="field">
+        <% @categories.each do |category| %>
+          <%= f.check_box :category_ids, { multiple: true }, category.id, nil %>
+          <%= f.label :category_ids, category.name %>
+        <% end %>
+      </div>
+      <div class="field">
+        <%= f.check_box :recurrence, { multiple: true } %>
+        <%= f.label :recurrence, "来週も繰り返す" %>
+      </div>
+      <%= f.submit '登録', class: 'btn btn-primary'  %>
+    <% end %>
   </div>
 </div>
