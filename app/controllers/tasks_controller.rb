@@ -29,9 +29,6 @@ class TasksController < ApplicationController
     @task.user_id = current_user.id
     if @task.save
       flash[:notice] = 'おめでとう！タスクを作成できました'
-      if @task.recurrence == "[\"0\", \"1\"]"
-        task_repetition
-      end
       redirect_to tasks_path
     else
       flash[:alert] = 'タスクを作成できませんでした'
@@ -65,6 +62,10 @@ class TasksController < ApplicationController
     RecurringSchedule.where(task: @task).destroy_all
     @task.destroy!
     flash[:notice] = 'タスク完了です！よく頑張りました！'
+    if @task.recurrence == "[\"0\", \"1\"]" 
+      task_repetition
+      flash[:notice] = '来週のタスクを作成しました！'
+    end
     redirect_to tasks_path
   end
 
@@ -81,7 +82,8 @@ class TasksController < ApplicationController
         category_ids: @task.categories.ids,
         start_date: @task.start_date + 1.week,
         end_date: @task.end_date + 1.week,
-        user_id: current_user.id
+        user_id: current_user.id,
+        recurrence: "[\"0\", \"1\"]" 
       )
     @task.save!
   end
