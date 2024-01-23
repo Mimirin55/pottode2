@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = Category.new(category_create_params)
     if @category.save
       flash[:notice] = 'おめでとう！カテゴリを作成できました'
       redirect_to categories_path
@@ -38,6 +38,10 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
+    params.require(:category).permit(:name)
+  end
+
+  def category_create_params
     params.permit(:name)
   end
 end
